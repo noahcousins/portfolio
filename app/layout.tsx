@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body
-        className={`select-none bg-background focus-visible:ring-transparent dark:bg-[#010101]`}
+        className={`select-none bg-background focus-visible:ring-transparent dark:bg-neutral-900`}
       >
         <main className="mx-auto flex min-h-screen max-w-[1280px] flex-col items-center">
           <ThemeProvider
@@ -30,7 +30,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex w-full">{children}</div>
-            <Footer />
           </ThemeProvider>
         </main>
         <Toaster />

@@ -57,7 +57,7 @@ export default function StatementsGrid({
         selectedDisclosureScore={selectedDisclosureScore}
         setSelectedDisclosureScore={setSelectedDisclosureScore}
       />
-      <div className="mx-auto grid w-fit grid-cols-1 gap-4 md:mx-0 md:grid-cols-2 2xl:grid-cols-3">
+      <div className="mx-auto grid w-fit grid-cols-1 gap-4 md:mx-0 md:grid-cols-2 xl:grid-cols-3">
         {filteredStatements.map((statement, index) => (
           <SmallStatementCard
             statement={statement}

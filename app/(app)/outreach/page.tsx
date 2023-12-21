@@ -41,7 +41,10 @@ export default async function Outreach() {
       <div className="flex w-full flex-col content-between justify-between gap-8">
         <div className="flex w-full flex-col content-between justify-between">
           <h1 className="text-4xl font-bold">Outreach</h1>
-          <p className="text-lg">Reach out to your elected officials.</p>
+          <p className="text-lg">
+            One click tool to message your elected officials about UAP. Find all
+            points of contact for your rep.
+          </p>
         </div>
       </div>
 

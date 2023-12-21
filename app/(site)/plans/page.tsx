@@ -19,7 +19,9 @@ export default async function Plans() {
 
   return (
     <div
-      className={'mx-auto flex flex-col items-center justify-center space-y-16'}
+      className={
+        'mx-auto flex flex-col items-center justify-center space-y-16 py-16'
+      }
     >
       <Pricing
         session={session}

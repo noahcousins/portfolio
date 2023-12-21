@@ -9,7 +9,8 @@ import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { CheckIcon } from 'lucide-react';
+import { CheckIcon, Info } from 'lucide-react';
+import { Badge } from './ui/badge';
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
@@ -98,9 +99,9 @@ export default function Pricing({
         <div className="mx-auto max-w-6xl">
           <div className="sm:align-center sm:flex sm:flex-col">
             <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-              Plans & Pricing
+              We encourage you to use our free tier.
             </h1>
-            <p className="m-auto mt-5 max-w-2xl text-xl text-zinc-200 sm:text-center sm:text-2xl">
+            <p className="m-auto max-w-2xl text-xl text-zinc-200 sm:text-center sm:text-2xl">
               Start sending for free, then add a site plan to go live. Account
               plans unlock additional features.
             </p>
@@ -161,15 +162,22 @@ export default function Pricing({
   return (
     <section className="bg-black">
       <div className="mx-auto max-w-6xl">
-        <div className="sm:align-center sm:flex sm:flex-col">
+        <div className="sm:align-center gap-4 sm:flex sm:flex-col">
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Plans & Pricing
+            We encourage you
+            <br />
+            to use our free tier.
           </h1>
-          <p className="m-auto mt-5 max-w-xl text-xl text-zinc-200 sm:text-center sm:text-2xl">
+          <p className="m-auto max-w-xl text-xl text-zinc-200 sm:text-center sm:text-2xl">
             Start sending for free, then add a plan to ramp it up. Account plans
             unlock additional features.
           </p>
-          <div className="relative mt-6 flex self-center rounded-lg border border-zinc-800 bg-zinc-900 p-0.5 sm:mt-8">
+          <Badge className="mx-auto flex w-fit gap-2">
+            <Info size={16} />
+            Manually email your elected officials for best results. Our premium
+            tier does this for you.
+          </Badge>
+          {/* <div className="relative mt-6 flex self-center rounded-lg border border-zinc-800 bg-zinc-900 p-0.5 sm:mt-8">
             {intervals.includes('month') && (
               <button
                 onClick={() => setBillingInterval('month')}
@@ -196,8 +204,9 @@ export default function Pricing({
                 Yearly billing
               </button>
             )}
-          </div>
+          </div> */}
         </div>
+
         <div className="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
           {products.map((product) => {
             const price = product?.prices?.find(
@@ -241,17 +250,32 @@ export default function Pricing({
                   </p>
                   {benefits.length > 0 && (
                     <ul className="mt-2 flex flex-col gap-2 text-zinc-300">
-                      {benefits.map((benefit: any, index: any) => (
-                        <li
-                          className="flex items-center gap-2 text-sm"
-                          key={index}
-                        >
-                          <CheckIcon />
-                          {benefit}
-                        </li>
-                      ))}
+                      {benefits.map((benefit: string, index: number) => {
+                        const parts = benefit.split(/(Sends)/); // Split the string at "Sends"
+                        return (
+                          <li
+                            className="flex items-center gap-2 text-sm"
+                            key={index}
+                          >
+                            <CheckIcon />
+                            {parts.map((part, partIndex) =>
+                              part === 'Sends' ? (
+                                <span
+                                  key={partIndex}
+                                  className="rounded-md bg-purple-600/40 px-2 py-1 text-primary"
+                                >
+                                  Sends
+                                </span>
+                              ) : (
+                                part
+                              )
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
+
                   <Button
                     variant="default"
                     type="button"
@@ -265,6 +289,15 @@ export default function Pricing({
               </div>
             );
           })}
+        </div>
+        <div className="">
+          <p className="">
+            Our tool can be used 100% free forever. You can always access phone
+            numbers and contact forms for your elected officials. We only charge
+            to use our servers and databases to contact officials on your
+            behalf. We keep our prices affordable to let anyone who wants to
+            contact their officials, but save time, be able to.
+          </p>
         </div>
       </div>
     </section>

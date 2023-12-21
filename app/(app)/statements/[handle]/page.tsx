@@ -77,9 +77,9 @@ export default async function Statement({ params }: { params: any }) {
       </div>
 
       <div className="flex w-full gap-8 px-4 md:px-0 lg:px-12">
-        <div className="absolute left-12 flex md:left-44 lg:left-64">
+        {/* <div className="absolute left-0 flex md:left-44 lg:left-64">
           <ValueColoredBlob value={statement!.bipartisanScore} />
-        </div>
+        </div> */}
 
         <div className="flex w-full flex-col gap-8">
           <div className="flex flex-col justify-center gap-24">
@@ -101,46 +101,42 @@ export default async function Statement({ params }: { params: any }) {
                 />
               </div>
             </div>
-
-            <div className="flex w-full flex-col">
-              <p className="text-sm font-bold uppercase">
-                {new Date(statement!.date!).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
-              <p className="text-left font-light text-primary">
-                {statement!.text}
-              </p>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className="flex h-full w-full flex-col items-center gap-1">
-                      {/* @ts-ignore */}
-                      <Gauge
-                        value={mappedBipartisanValue}
-                        label={undefined}
-                        units={undefined}
-                        min={0}
-                        max={100}
-                      />
-                      <p className="text-center text-xs font-light uppercase">
-                        Bipartisan index
-                      </p>
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="normal-case">
-                      See which side of the aisle the statement falls on.
-                    </p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
           </div>
         </div>
       </div>
+
+      <div className="flex w-full flex-col gap-4">
+        <p className="text-sm font-normal uppercase opacity-80">
+          {new Date(statement!.date!).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </p>
+        <p className="text-left font-light text-primary">{statement!.text}</p>
+      </div>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="flex h-full w-fit flex-col gap-1 rounded-2xl bg-white/5 p-8">
+              {/* @ts-ignore */}
+              <Gauge
+                value={mappedBipartisanValue}
+                label={undefined}
+                units={undefined}
+                min={0}
+                max={100}
+              />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p className="normal-case">
+              See which side of the aisle the statement falls on.
+            </p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
       <HorizontalGallery
         heading="Other Statements"

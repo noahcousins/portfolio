@@ -5,7 +5,6 @@ import TemplateForm from '@/components/forms/TemplateForm';
 import { useState } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import {
   Accordion,
@@ -13,7 +12,6 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion';
-import { Button, buttonVariants } from '@/components/ui/button';
 
 export default function OutreachForm({
   politiciansData,
@@ -33,22 +31,25 @@ export default function OutreachForm({
 
   return (
     <>
-      {politiciansData.data!.map((politician: any) => {
-        const formattedName = formatName(
-          politician.position!,
-          politician.name!
-        );
+      <Accordion
+        className="mx-auto w-full"
+        type="single"
+        collapsible
+        // defaultValue={`item-${politician.id}`}
+      >
+        {politiciansData.data!.map((politician: any) => {
+          const formattedName = formatName(
+            politician.position!,
+            politician.name!
+          );
+          const itemId = `item-${politician.id}`;
+          const isItemOpen = openItem === itemId;
 
-        return (
-          <Accordion
-            className="mx-auto w-full"
-            type="single"
-            collapsible
-            key={politician.id}
-          >
+          return (
             <AccordionItem
               className="items-start text-left"
               value={`item-${politician.id}`}
+              key={politician.id}
             >
               <AccordionTrigger
                 onClick={() => handleAccordionClick(`item-${politician.id}`)}
@@ -72,46 +73,17 @@ export default function OutreachForm({
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="flex items-center gap-2">
-                  <Link
-                    href={`tel:${politician.phone_number}`}
-                    className={buttonVariants({ variant: 'secondary' })}
-                  >
-                    <div className="flex flex-col items-center">
-                      <p className="">Call now</p>
-                      <p className="text-xs uppercase">
-                        {politician.phone_number}
-                      </p>
-                    </div>
-                  </Link>
-                  <Link
-                    href={politician.officialWebsite!}
-                    className={buttonVariants({ variant: 'secondary' })}
-                  >
-                    <div className="flex flex-col items-center">
-                      <p className="">Email</p>
-                    </div>
-                  </Link>
-                  <p className="">or</p>
-                  <Link
-                    href={politician.officialWebsite!}
-                    className={buttonVariants({ variant: 'default' })}
-                  >
-                    <div className="flex flex-col items-center">
-                      <p className="">One-click send with UAPoli</p>
-                    </div>
-                  </Link>
-                </div>
                 <TemplateForm
                   politician={politician}
                   session={session}
                   templates={templates}
+                  isOpen={isItemOpen} // Pass isOpen prop to TemplateForm
                 />
               </AccordionContent>
             </AccordionItem>
-          </Accordion>
-        );
-      })}
+          );
+        })}
+      </Accordion>
     </>
   );
 }

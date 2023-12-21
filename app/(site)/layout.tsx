@@ -16,7 +16,7 @@ export default function SiteLayout({
 }) {
   return (
     <div className="flex w-full flex-col">
-      <Navigation /> <div className="flex w-full">{children}</div>
+      <div className="flex w-full">{children}</div>
     </div>
   );
 }

@@ -40,7 +40,7 @@ export default async function AppLayout({
       <Sidebar />
       <div className="flex w-full flex-col lg:w-5/6">
         <AppNavigation />
-        <div className="relative flex w-full px-8 py-8">
+        <div className="relative flex w-full px-4 py-8 lg:px-8">
           {/* Use the Paywall component */}
           {!isUserLoggedIn && <Paywall />}
           {/* Render the content */}

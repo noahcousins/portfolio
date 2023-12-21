@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { arc } from "d3-shape";
-import { scaleLinear } from "d3-scale";
-import { format } from "d3-format";
+import React, { useState, useEffect } from 'react';
+import { arc } from 'd3-shape';
+import { scaleLinear } from 'd3-scale';
+import { format } from 'd3-format';
 
 export default function Gauge({
   value = 50,
   min = 0,
   max = 100,
   label,
-  units,
+  units
 }: {
   value: number;
   min: number;
@@ -20,7 +20,7 @@ export default function Gauge({
 }) {
   const getCoordsOnArc = (angle: number, offset = 10) => [
     Math.cos(angle - Math.PI / 2) * offset,
-    Math.sin(angle - Math.PI / 2) * offset,
+    Math.sin(angle - Math.PI / 2) * offset
   ];
 
   const stepCount = 10;
@@ -31,15 +31,15 @@ export default function Gauge({
     .clamp(true);
 
   const stepColors = [
-    "#1c28ff",
-    "#4b1dff",
-    "#861eff",
-    "#c01fff",
-    "#f920ff",
-    "#ff21cc",
-    "#ff2293",
-    "#ff235b",
-    "#ff2424",
+    '#1c28ff',
+    '#4b1dff',
+    '#861eff',
+    '#c01fff',
+    '#f920ff',
+    '#ff21cc',
+    '#ff2293',
+    '#ff235b',
+    '#ff2424'
   ].slice(0, stepCount);
 
   const stepAngles = Array.from({ length: stepCount }, (_, i) => {
@@ -75,11 +75,11 @@ export default function Gauge({
   }, [value, min]); // Include value and min in the dependency array
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="flex gap-8">
       <svg
-        style={{ overflow: "visible" }}
+        style={{ overflow: 'visible' }}
         width="9em"
-        viewBox={[-1, -1, 2, 1].join(" ")}
+        viewBox={[-1, -1, 2, 1].join(' ')}
       >
         <defs>
           <linearGradient
@@ -110,7 +110,7 @@ export default function Gauge({
               //@ts-ignore
               .cornerRadius(1)({
               startAngle: angle,
-              endAngle: stepAngles[index + 1] || angleScale(1),
+              endAngle: stepAngles[index + 1] || angleScale(1)
             })}
             fill={stepColors[index]}
           />
@@ -147,25 +147,31 @@ export default function Gauge({
           fill="#ffffff25"
         />
       </svg>
-      <div
-        style={{
-          marginTop: "0.4em",
-          fontSize: "3em",
-          lineHeight: "1em",
-          fontWeight: "900",
-          fontFeatureSettings: "'zero', 'tnum' 1",
-        }}
-      >
-        {format(",")(Math.round(animatedValue))}
+      <div className="pb-4 text-center">
+        <div
+          style={{
+            marginTop: '0.4em',
+            fontSize: '3em',
+            lineHeight: '1em',
+            fontWeight: '900',
+            fontFeatureSettings: "'zero', 'tnum' 1"
+          }}
+        >
+          {format(',')(Math.round(animatedValue))}
+        </div>
+        <p className="text-center text-[8px] font-light uppercase">
+          Bipartisan index
+        </p>
       </div>
+
       {!!label && (
         <div
           style={{
-            color: "#8b8ba7",
-            marginTop: "0.6em",
-            fontSize: "1.3em",
-            lineHeight: "1.3em",
-            fontWeight: "700",
+            color: '#8b8ba7',
+            marginTop: '0.6em',
+            fontSize: '1.3em',
+            lineHeight: '1.3em',
+            fontWeight: '700'
           }}
         >
           {label}
@@ -174,9 +180,9 @@ export default function Gauge({
       {!!units && (
         <div
           style={{
-            color: "#8b8ba7",
-            lineHeight: "1.3em",
-            fontWeight: "300",
+            color: '#8b8ba7',
+            lineHeight: '1.3em',
+            fontWeight: '300'
           }}
         >
           {units}
