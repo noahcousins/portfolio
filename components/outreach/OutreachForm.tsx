@@ -1,7 +1,5 @@
 'use client';
 
-import TemplateForm from '@/components/forms/TemplateForm';
-
 import { useState } from 'react';
 
 import Image from 'next/image';
@@ -72,14 +70,7 @@ export default function OutreachForm({
                   </div>
                 </div>
               </AccordionTrigger>
-              <AccordionContent>
-                <TemplateForm
-                  politician={politician}
-                  session={session}
-                  templates={templates}
-                  isOpen={isItemOpen} // Pass isOpen prop to TemplateForm
-                />
-              </AccordionContent>
+              <AccordionContent></AccordionContent>
             </AccordionItem>
           );
         })}
