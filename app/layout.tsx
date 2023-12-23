@@ -22,14 +22,16 @@ export default function RootLayout({
       <body
         className={`select-none bg-background focus-visible:ring-transparent dark:bg-neutral-900`}
       >
-        <main className="mx-auto flex min-h-screen max-w-[1280px] flex-col items-center">
+        <main className="mx-auto flex min-h-screen flex-col items-center">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <div className="flex w-full">{children}</div>
+            <Navigation />{' '}
+            <div className="flex w-full px-4 py-8 xl:px-0">{children}</div>
+            <Footer />
           </ThemeProvider>
         </main>
         <Toaster />
