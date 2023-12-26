@@ -12,6 +12,8 @@ import UAPoliLogo from '../../public/uapoli-light.svg';
 import { Github } from 'lucide-react';
 import Logo from './Logo';
 import NavLogo from './NavLogo';
+import { motion } from 'framer-motion';
+import SocialLinks from './SocialLinks';
 
 export default async function Navigation() {
   const cookieStore = cookies();
@@ -82,17 +84,7 @@ export default async function Navigation() {
           <NavLogo />
         </Link>
         <div className="flex gap-4">
-          {socialLinks.map((socialLink) => (
-            <Link target="_blank" href={socialLink.href}>
-              <Image
-                className="opacity-100 transition-all duration-300 ease-in-out hover:opacity-60 active:scale-75 active:opacity-80"
-                width={28}
-                height={28}
-                alt={socialLink.alt}
-                src={socialLink.imageSrc}
-              />
-            </Link>
-          ))}
+          <SocialLinks socialLinks={socialLinks} />
         </div>
       </div>
     </nav>

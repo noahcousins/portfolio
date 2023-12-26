@@ -6,7 +6,8 @@ const projects = [
     imageAlt: 'Drumify image',
     imageSrc: '',
     href: 'https://drumify.com',
-    projectDescription: 'Lorem ipsum'
+    projectDescription:
+      'During my time at Drumify, I contributed to everything design, product, and marketing; launching their first MVP, redefining their brand and visual identity, leading and executing various marketing campaigns, and generally establishing it as the new way to work with session musicians.    '
   },
   {
     projectName: 'soundbit',

@@ -18,19 +18,16 @@ const fadeInAnimationVariants = {
   }
 };
 
-const milestonesFadeInAnimationVariants = {
+const skillsFadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 10,
-    delay: 3 // Adding an overall initial delay of 3 seconds
+    y: 10
   },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
-    delay: 1, // You can adjust this delay as needed for individual items
     transition: {
-      opacity: { delay: 0.02 * index },
-      y: { delay: 0.1 * index }
+      delay: 0.02 * index
     }
   })
 };
@@ -92,6 +89,24 @@ const childVariants = {
   }
 };
 
+const skills = [
+  { name: 'HTML' },
+  { name: 'CSS' },
+  { name: 'JavaScript' },
+  { name: 'TypeScript' },
+  { name: 'Git' },
+  { name: 'GraphQL' },
+  { name: 'React' },
+  { name: 'Next.js' },
+  { name: 'Node.js' },
+  { name: 'PostgreSQL' },
+  { name: 'Supabase' },
+  { name: 'Firebase' },
+  { name: 'Tailwind CSS' },
+  { name: 'Framer Motion' },
+  { name: 'AWS' }
+];
+
 // export const metadata = {
 //   title: 'UAPoli',
 //   description:
@@ -101,31 +116,38 @@ const childVariants = {
 export default function Home() {
   const projects = [
     {
-      projectName: 'Drumify',
+      name: 'Drumify',
       imageAlt: 'Drumify image',
       imageSrc: '',
       href: 'https://drumify.com',
-      projectDescription: 'Lorem ipsum'
-    },
-    {
-      projectName: 'soundbit',
-      imageAlt: 'soundbit image',
-      imageSrc: '',
-      href: 'https://soundbit.io',
-      projectDescription: 'Lorem ipsum'
-    },
-    {
-      projectName: 'UAPoli',
-      imageAlt: 'UAPoli image',
-      imageSrc: '',
-      href: 'https://uapoli.com',
-      projectDescription: 'Lorem ipsum'
+      role: 'Product Designer',
+      term: '2021 - Present',
+      description:
+        'While at Drumify, I played a pivotal role across design, product development, and marketing. I spearheaded the launch of their subscription model, revamped their brand and visual identity, directed diverse marketing initiatives, and successfully positioned the platform as the fresh approach to collaborating with session musicians.      '
     }
+    // {
+    //   name: 'soundbit',
+    //   imageAlt: 'soundbit image',
+    //   imageSrc: '',
+    //   term: '2023 - Present',
+    //   role: 'Fullstack',
+    //   href: 'https://soundbit.io',
+    //   description: 'Lorem ipsum'
+    // },
+    // {
+    //   name: 'UAPoli',
+    //   imageAlt: 'UAPoli image',
+    //   imageSrc: '',
+    //   term: '2023 - Present',
+    //   role: 'Fullstack',
+    //   href: 'https://uapoli.com',
+    //   description: 'Lorem ipsum'
+    // }
   ];
 
   return (
     <div className={'mx-auto flex max-w-4xl flex-col gap-8'}>
-      <div className="flex w-full flex-col gap-8">
+      <div className="flex w-full flex-col gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,7 +198,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="waving-hand"
+              className="waving-hand pl-2"
             >
               👋
             </motion.span>
@@ -215,6 +237,70 @@ export default function Home() {
             So I learned how to code.
           </motion.span>
         </motion.p>
+        <ul className="justify-left flex max-w-xl flex-wrap gap-2 py-2 text-xs">
+          {skills.map((skill, index) => (
+            <motion.li
+              variants={skillsFadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="rounded-xl border-[1px] border-white bg-white px-2 py-1 text-black"
+              custom={index}
+            >
+              {skill.name}
+            </motion.li>
+          ))}
+        </ul>
+      </div>
+
+      <Separator className="w-full" />
+
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-16">
+          {projects.map((project, i) => (
+            <motion.div
+              variants={fadeInAnimationVariants}
+              viewport={{ once: true }}
+              initial="initial"
+              whileInView="animate"
+              key={i}
+              className="flex w-full flex-col gap-8 lg:flex-row"
+            >
+              <div className="h-64 w-full overflow-hidden rounded-3xl bg-primary/25 lg:w-1/2">
+                <Image
+                  alt="Drumify Hero"
+                  height={360}
+                  className="h-full"
+                  width={640}
+                  src="/drumify-hero.jpg"
+                />
+              </div>
+              <div className="flex w-full flex-col gap-0 lg:w-1/2 lg:gap-4">
+                <div className="flex gap-3">
+                  <div className="aspect-square w-12 overflow-hidden rounded-2xl bg-primary/5">
+                    <Image
+                      alt="Drumify Hero"
+                      height={1000}
+                      className="h-full"
+                      width={1000}
+                      src="/drumify_logo.png"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-2xl font-semibold">{project.name}</h3>
+                    <p className="text-sm uppercase">
+                      {project.role}
+                      {' / '}
+                      {project.term}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-sm font-light">{project.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <Separator className="w-full" />
@@ -239,28 +325,6 @@ export default function Home() {
           </motion.div>
         ))}
       </motion.div>
-
-      <div className="flex flex-col gap-4">
-        <h2 className="text-3xl font-bold">Projects</h2>
-        <div className="flex flex-col gap-16">
-          {projects.map((project, i) => (
-            <motion.div
-              variants={fadeInAnimationVariants}
-              viewport={{ once: true }}
-              initial="initial"
-              whileInView="animate"
-              key={i}
-              className="flex w-full flex-col gap-8 lg:flex-row"
-            >
-              <div className="h-64 w-full rounded-3xl bg-primary/25 lg:w-1/2"></div>
-              <div className="flex w-full flex-col gap-0 lg:w-1/2 lg:gap-4">
-                <h3 className="text-4xl font-bold">{project.projectName}</h3>
-                <p className="font-light">{project.projectDescription}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
