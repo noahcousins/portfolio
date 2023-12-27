@@ -5,9 +5,7 @@ import { CreditCardIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import Link from 'next/link';
-import Image from 'next/image';
 
-import UAPoliLogo from '../../public/uapoli-light.svg';
 import Logo from './Logo';
 import ModeToggle from '../ModeToggle';
 

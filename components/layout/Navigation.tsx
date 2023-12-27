@@ -8,7 +8,6 @@ import Link from 'next/link';
 import MobileSidebar from '@/components/layout/MobileSidebar';
 import { GrGithub } from 'react-icons/gr';
 
-import UAPoliLogo from '../../public/uapoli-light.svg';
 import { Github } from 'lucide-react';
 import Logo from './Logo';
 import NavLogo from './NavLogo';
@@ -63,7 +62,7 @@ export default async function Navigation() {
     {
       alt: 'LinkedIn logo',
       imageSrc: '/linkedin-logo.svg',
-      href: 'https://linkedin.com/noahcousins'
+      href: 'https://linkedin.com/in/noahcousins'
     }
   ];
 

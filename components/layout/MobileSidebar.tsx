@@ -15,66 +15,39 @@ import {
 } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import {
-  Users2,
+  GalleryHorizontalEnd,
   ScrollText,
-  Compass,
-  Mic,
-  Text,
+  Send,
+  FileDown,
+  User,
   Settings,
   Gavel
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import UAPoliLogo from '../../public/uapoli-light.svg';
-
-const topRoutes = [
-  {
-    label: 'Explore',
-    icon: Compass,
-    color: 'text-emerald-500',
-    href: '/explore'
-  }
-];
+import NavLogo from './NavLogo';
 
 const mainRoutes = [
   {
-    label: 'Politicians',
-    icon: Users2,
-    href: '/politicians',
-    color: 'text-sky-500'
-  },
-  {
-    label: 'Statements',
-    icon: Mic,
-    href: '/statements',
-    color: 'text-violet-500'
-  },
-  {
-    label: 'Legislation',
-    icon: ScrollText,
-    color: 'text-pink-700',
-    href: '/legislation'
-  },
-  {
-    label: 'Hearings',
-    icon: Gavel,
-    color: 'text-orange-700',
-    href: '/hearings'
-  }
-];
-
-const bottomRoutes = [
-  {
     label: 'About',
-    icon: Text,
-    color: 'text-emerald-500',
+    icon: User,
     href: '/about'
   },
   {
-    label: 'Settings',
-    icon: Settings,
-    href: '/settings'
+    label: 'Portfolio',
+    icon: GalleryHorizontalEnd,
+    href: '/portfolio'
+  },
+  {
+    label: 'Contact',
+    icon: Send,
+    href: '/hearings'
+  },
+  {
+    label: 'Download my CV',
+    icon: FileDown,
+    href: '/'
   }
 ];
 
@@ -86,23 +59,26 @@ export default function MobileSidebar() {
       <SheetTrigger>
         <Menu size={24} className="text-white" />
       </SheetTrigger>
-      <SheetContent className="w-[300px]" side={'left'}>
+      <SheetContent className="flex w-[300px] flex-col gap-4" side={'left'}>
         <SheetHeader>
-          <Link href="/">
-            <Image
-              priority
-              alt="UAPoli logo"
-              width={80}
-              height={20.96}
-              src={UAPoliLogo}
-            />
+          <Link className="visible lg:hidden" href="/">
+            <NavLogo />
           </Link>
-          <SidebarContent />
-
-          {/* <SheetTitle>Are you sure absolutely sure?</SheetTitle> */}
-          {/* <SheetDescription>
-          </SheetDescription> */}
         </SheetHeader>
+
+        <div className="w-fit space-y-1 rounded-2xl bg-transparent transition-colors hover:bg-background/40">
+          {mainRoutes.map((route) => (
+            <NavLink key={route.href} href={route.href}>
+              <div className="group flex w-44 flex-1 cursor-pointer items-center justify-start rounded-lg p-3 text-sm transition hover:bg-white/10">
+                <route.icon size={20} className="mr-3" />
+                {route.label}
+              </div>
+            </NavLink>
+          ))}
+        </div>
+        {/* <SheetTitle>Are you sure absolutely sure?</SheetTitle> */}
+        {/* <SheetDescription>
+          </SheetDescription> */}
       </SheetContent>
     </Sheet>
   );

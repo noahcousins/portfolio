@@ -115,16 +115,6 @@ export default function SidebarContent() {
                 </NavLink>
               ))}
             </div>
-            <div className="w-fit space-y-1 rounded-2xl bg-transparent p-2 transition-colors hover:bg-background/40">
-              {mainRoutes.map((route) => (
-                <NavLink key={route.href} href={route.href}>
-                  <div className="group flex w-36 flex-1 cursor-pointer items-center justify-start rounded-lg p-3 text-sm transition hover:bg-white/10">
-                    <route.icon size={20} className="mr-3" />
-                    {route.label}
-                  </div>
-                </NavLink>
-              ))}
-            </div>
           </AccordionContent>
         </AccordionItem>
       </Accordion>

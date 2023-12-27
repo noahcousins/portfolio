@@ -5,8 +5,8 @@ import Sidebar from '@/components/layout/Sidebar';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata = {
-  title: 'UAPoli',
-  description: 'The fastest way to build apps with Next.js and Supabase'
+  title: 'Noah Cousins',
+  description: 'Frontend Web Developer'
 };
 
 export default function SiteLayout({

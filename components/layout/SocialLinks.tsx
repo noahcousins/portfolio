@@ -32,7 +32,7 @@ export default function SocialLinks({ socialLinks }: { socialLinks: any }) {
         >
           <Link target="_blank" href={socialLink.href}>
             <Image
-              className="opacity-100 transition-all duration-300 ease-in-out hover:opacity-60 active:scale-75 active:opacity-80"
+              className="h-6 opacity-100 transition-all duration-300 ease-in-out hover:opacity-60 active:scale-75 active:opacity-80"
               width={28}
               height={28}
               alt={socialLink.alt}

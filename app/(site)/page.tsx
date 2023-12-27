@@ -107,12 +107,6 @@ const skills = [
   { name: 'AWS' }
 ];
 
-// export const metadata = {
-//   title: 'UAPoli',
-//   description:
-//     'A bipartisan congressional outreach platform advocating for UAP disclosure.'
-// };
-
 export default function Home() {
   const projects = [
     {
