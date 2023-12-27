@@ -44,22 +44,25 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="bg-gray-100">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto flex w-full">
+      <div className="mx-auto max-w-4xl">
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-          <div className="lg:col-span-2 lg:py-12">
-            <p className="max-w-xl text-lg">Want to chat with me?</p>
-
-            <div className="mt-8">
-              <a href="" className="text-2xl font-bold text-pink-600">
-                +1 234 567 8900
-              </a>
-
-              <address className="mt-2 not-italic">123 E Main St</address>
-            </div>
+          <div className="flex flex-col gap-8 lg:col-span-2">
+            <p className="max-w-xl text-4xl font-bold">Contact</p>
+            <p className="">
+              Ready to bring your ideas into the digital realm? Reach out for
+              inquiries, quotes, or to discuss potential collaborations. Let's
+              create something remarkable together.
+            </p>
+            <a
+              href="mailto:noahcousins.dev@gmail.com"
+              className="text-xl font-semibold"
+            >
+              noahcousins.dev@gmail.com
+            </a>
           </div>
 
-          <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+          <div className="rounded-lg lg:col-span-3">
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <label className="sr-only" htmlFor="name">

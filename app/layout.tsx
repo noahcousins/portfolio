@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={`bg-background focus-visible:ring-transparent dark:bg-neutral-900`}
       >
-        <main className="mx-auto flex min-h-screen flex-col items-center">
+        <main className="mx-auto flex flex-col items-center">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

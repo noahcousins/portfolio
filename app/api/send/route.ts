@@ -18,9 +18,10 @@ export async function POST(req: NextRequest) {
     .then((body) => sendRouteSchema.parse(body));
 
   const data = await resend.emails.send({
-    from: 'from email',
-    to: ['to email'],
+    from: 'no-reply@noahcousins.com',
+    to: 'noahcousins.dev@gmail.com',
     subject: `${name} has a message!`,
+    reply_to: emailAddress,
     react: ContactMeEmail({ name, emailAddress, phoneNumber, content })
   });
 
