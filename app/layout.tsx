@@ -7,9 +7,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { GeistSans } from 'geist/font';
 
 export const metadata = {
-  title: 'UAPoli',
-  description:
-    'A bipartisan congressional outreach platform advocating for UAP disclosure.'
+  title: 'Noah Cousins',
+  description: 'Frontend Web Developer'
 };
 
 export default function RootLayout({
