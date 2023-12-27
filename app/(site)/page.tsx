@@ -123,7 +123,7 @@ export default function Home() {
       role: 'Product Designer',
       term: '2021 - Present',
       description:
-        'While at Drumify, I played a pivotal role across design, product development, and marketing. I spearheaded the launch of their subscription model, revamped their brand and visual identity, directed diverse marketing initiatives, and successfully positioned the platform as the fresh approach to collaborating with session musicians.      '
+        'At Drumify, I play a pivotal role across design, product development, and marketing. I spearhead the launch of their subscription model, revamped their brand and visual identity, direct diverse marketing initiatives, and successfully position the platform as the fresh approach to collaborating with session musicians.'
     }
     // {
     //   name: 'soundbit',
@@ -244,7 +244,7 @@ export default function Home() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="rounded-xl border-[1px] border-white bg-white px-2 py-1 text-black"
+              className="rounded-xl border-[1px] border-primary bg-primary px-2 py-1 text-secondary"
               custom={index}
             >
               {skill.name}
@@ -275,7 +275,7 @@ export default function Home() {
                   src="/drumify-hero.jpg"
                 />
               </div>
-              <div className="flex w-full flex-col gap-0 lg:w-1/2 lg:gap-4">
+              <div className="flex w-full flex-col gap-4 lg:w-1/2">
                 <div className="flex gap-3">
                   <div className="aspect-square w-12 overflow-hidden rounded-2xl bg-primary/5">
                     <Image
@@ -296,14 +296,14 @@ export default function Home() {
                   </div>
                 </div>
 
-                <p className="text-sm font-light">{project.description}</p>
+                <p className="text-sm font-normal">{project.description}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      <Separator className="w-full" />
+      {/* <Separator className="w-full" />
 
       <motion.div
         variants={containerVariants}
@@ -324,7 +324,7 @@ export default function Home() {
             <p className="">{milestone.description}</p>
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }

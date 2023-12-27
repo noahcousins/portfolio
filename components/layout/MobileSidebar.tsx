@@ -84,7 +84,7 @@ export default function MobileSidebar() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu size={24} />
+        <Menu size={24} className="text-white" />
       </SheetTrigger>
       <SheetContent className="w-[300px]" side={'left'}>
         <SheetHeader>

@@ -54,7 +54,7 @@ const Projects = () => {
             className="flex w-full flex-col gap-8 lg:flex-row"
           >
             <div className="h-64 w-full rounded-3xl bg-primary/25 lg:w-1/2"></div>
-            <div className="flex w-full flex-col gap-0 lg:w-1/2 lg:gap-4">
+            <div className="flex w-full flex-col gap-4 lg:w-1/2">
               <h3 className="text-4xl font-bold">{project.projectName}</h3>
               <p className="font-light">{project.projectDescription}</p>
             </div>

@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1">
               {footerLinks.map((link, i) => (
                 <Link target="_blank" key={i} href={link.href}>
-                  <p className="w-fit border-b-[1px] border-white/60 text-sm transition-all duration-100 ease-in-out hover:border-white">
+                  <p className="w-fit border-b-[1px] border-white/60 text-sm text-white transition-all duration-100 ease-in-out hover:border-white">
                     {link.name}
                   </p>
                 </Link>
