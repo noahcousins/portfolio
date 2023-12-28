@@ -14,15 +14,7 @@ import {
   SheetTrigger
 } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
-import {
-  GalleryHorizontalEnd,
-  ScrollText,
-  Send,
-  FileDown,
-  User,
-  Settings,
-  Gavel
-} from 'lucide-react';
+import { GalleryHorizontalEnd, Send, FileDown, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,7 +34,7 @@ const mainRoutes = [
   {
     label: 'Contact',
     icon: Send,
-    href: '/hearings'
+    href: '/contact'
   },
   {
     label: 'Download my CV',

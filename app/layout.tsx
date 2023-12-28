@@ -1,3 +1,4 @@
+import Dock from '@/components/layout/Dock';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
 import Navigation from '@/components/layout/Navigation';
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body
         className={`bg-background focus-visible:ring-transparent dark:bg-neutral-900`}
       >
-        <main className="mx-auto flex flex-col items-center">
+        <main className="relative mx-auto flex flex-col items-center">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -35,6 +36,10 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </main>
+        <div className="fixed bottom-0 left-1/2 mb-12 hidden -translate-x-1/2 transform lg:flex">
+          <Dock />
+        </div>
+
         <Toaster />
       </body>
     </html>

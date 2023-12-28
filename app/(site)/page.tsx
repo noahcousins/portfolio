@@ -118,25 +118,25 @@ export default function Home() {
       term: '2021 - Present',
       description:
         'At Drumify, I play a pivotal role across design, product development, and marketing. I spearhead the launch of their subscription model, revamped their brand and visual identity, direct diverse marketing initiatives, and successfully position the platform as the fresh approach to collaborating with session musicians.'
+    },
+    {
+      name: 'soundbit',
+      imageAlt: 'soundbit image',
+      imageSrc: '',
+      term: '2023 - Present',
+      role: 'Fullstack',
+      href: 'https://soundbit.io',
+      description: 'Lorem ipsum'
+    },
+    {
+      name: 'UAPoli',
+      imageAlt: 'UAPoli image',
+      imageSrc: '',
+      term: '2023 - Present',
+      role: 'Fullstack',
+      href: 'https://uapoli.com',
+      description: 'Lorem ipsum'
     }
-    // {
-    //   name: 'soundbit',
-    //   imageAlt: 'soundbit image',
-    //   imageSrc: '',
-    //   term: '2023 - Present',
-    //   role: 'Fullstack',
-    //   href: 'https://soundbit.io',
-    //   description: 'Lorem ipsum'
-    // },
-    // {
-    //   name: 'UAPoli',
-    //   imageAlt: 'UAPoli image',
-    //   imageSrc: '',
-    //   term: '2023 - Present',
-    //   role: 'Fullstack',
-    //   href: 'https://uapoli.com',
-    //   description: 'Lorem ipsum'
-    // }
   ];
 
   return (
