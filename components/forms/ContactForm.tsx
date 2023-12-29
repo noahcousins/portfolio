@@ -4,6 +4,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import {
+  Form,
+  FormField,
+  FormControl,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form';
+
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+
 const formSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.'
@@ -20,17 +33,29 @@ const formSchema = z.object({
 });
 
 export default function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      content: ''
+    }
   });
 
+  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+    const formData = new FormData();
+    // TODO: pass formData to onSubmit
+    onSubmit(values);
+    form.reset();
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: implement
-    console.log(values);
+    // ### Parse formData like below:
+    // const name = formData.get('name') as string;
+    // const email = formData.get('email') as string;
+    // const phone = formData.get('phone') as string;
+    // const message = formData.get('content') as string;
 
     await fetch('/api/send', {
       method: 'POST',
@@ -63,98 +88,74 @@ export default function ContactForm() {
           </div>
 
           <div className="rounded-lg lg:col-span-3">
-            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-              <div>
-                <label className="sr-only" htmlFor="name">
-                  Name
-                </label>
-
-                <input
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Name"
-                  type="text"
-                  id="name"
-                  {...register('name')}
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleSubmit)}
+                className="space-y-8"
+              >
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="What's your name?" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
 
-                {errors?.name && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.name.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="sr-only" htmlFor="email">
-                    Email
-                  </label>
-
-                  <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Email address"
-                    type="email"
-                    id="email"
-                    {...register('email')}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="What's your email?" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-
-                  {errors?.email && (
-                    <p className="px-1 text-xs text-red-600">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone number</FormLabel>
+                        <FormControl>
+                          <Input placeholder="What's your #?" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
 
-                <div>
-                  <label className="sr-only" htmlFor="phone">
-                    Phone
-                  </label>
-
-                  <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Phone Number"
-                    type="tel"
-                    id="phone"
-                    {...register('phone')}
-                  />
-
-                  {errors?.phone && (
-                    <p className="px-1 text-xs text-red-600">
-                      {errors.phone.message}
-                    </p>
+                <FormField
+                  control={form.control}
+                  name="content"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Text</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Enter your message here"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
                   )}
-                </div>
-              </div>
-
-              <div>
-                <label className="sr-only" htmlFor="message">
-                  Message
-                </label>
-
-                <textarea
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Message"
-                  rows={8}
-                  id="message"
-                  {...register('content')}
                 />
 
-                {errors?.content && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.content.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="mt-4">
-                <button
-                  type="submit"
-                  className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+                <Button type="submit">Add Statement</Button>
+              </form>
+            </Form>
           </div>
         </div>
       </div>

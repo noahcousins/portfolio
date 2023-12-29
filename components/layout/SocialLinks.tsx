@@ -28,6 +28,7 @@ export default function SocialLinks({ socialLinks }: { socialLinks: any }) {
           whileInView="animate"
           viewport={{ once: true }}
           custom={index}
+          key={index}
           className=""
         >
           <Link target="_blank" href={socialLink.href}>
