@@ -2,7 +2,6 @@ import Dock from '@/components/layout/Dock';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
 import Navigation from '@/components/layout/Navigation';
-import Sidebar from '@/components/layout/Sidebar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { GeistSans } from 'geist/font';

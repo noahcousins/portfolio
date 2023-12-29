@@ -28,7 +28,7 @@ const Logo = () => {
     >
       <motion.path
         initial={{ rotateY: '0deg' }}
-        className={getRandomFlickerClass()} // Apply the random flicker class
+        className={getRandomFlickerClass()}
         animate={{
           rotateY: 0,
           transition: {

@@ -1,19 +1,20 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
+import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { ReactNode } from 'react';
 
 export default function NavLink({
   href,
-  children,
+  children
 }: {
   href: string;
-  children: any;
+  children: ReactNode;
 }) {
   let segment = useSelectedLayoutSegment();
   let active = href === `/${segment}`;
   return (
-    <Link className={active ? "font-medium" : "font-light"} href={href}>
+    <Link className={active ? 'font-medium' : 'font-light'} href={href}>
       {children}
     </Link>
   );

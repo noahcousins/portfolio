@@ -1,28 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { CreditCardIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
-
 import Link from 'next/link';
 
-import Logo from './Logo';
-import ModeToggle from '../ModeToggle';
+import Logo from '@/components/layout/Logo';
+import ModeToggle from '@/components/ModeToggle';
 
 export default function Footer() {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const iconVariants = {
-    hovered: {
-      scale: 1.1,
-      transition: {
-        duration: 0.1,
-        yoyo: Infinity,
-        ease: 'easeInOut'
-      }
-    }
-  };
-
   const footerLinks = [
     { name: 'Github', href: 'https://github.com/noahcousins' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/noahcousins' },

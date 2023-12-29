@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 'use client';
 
 import Link from 'next/link';
@@ -22,6 +20,12 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
+
+type Route = {
+  label: string;
+  icon: React.ComponentType<any>; // Adjust this based on the type of the icons
+  href: string;
+};
 
 const mainRoutes = [
   {
@@ -69,20 +73,14 @@ export default function Dock() {
         className="mx-auto flex h-16 items-end gap-4 rounded-2xl border-[1px] border-white/5 bg-black/95 px-4 pb-3 drop-shadow-xl backdrop-blur-sm hover:border-white/25"
       >
         {mainRoutes.map((route, index) => (
-          <AppIcon
-            mouseX={mouseX}
-            route={route}
-            label={route.label}
-            icon={route.icon}
-            key={index}
-          />
+          <AppIcon mouseX={mouseX} route={route} key={index} />
         ))}
       </motion.div>
     </AnimatePresence>
   );
 }
 
-function AppIcon({ mouseX, route }: { mouseX: MotionValue; route: any }) {
+function AppIcon({ mouseX, route }: { mouseX: MotionValue; route: Route }) {
   let ref = useRef<HTMLDivElement>(null);
 
   let distance = useTransform(mouseX, (val) => {

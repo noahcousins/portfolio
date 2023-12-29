@@ -3,18 +3,6 @@
 import { motion } from 'framer-motion';
 
 const Logo = () => {
-  const flickerVariants = [
-    'flicker-fastest',
-    'flicker-slowest',
-    'flicker-slow',
-    'flicker-fast'
-  ];
-
-  const getRandomFlickerClass = () => {
-    // Generate a random index within the classes array
-    const randomIndex = Math.floor(Math.random() * flickerVariants.length);
-    return flickerVariants[randomIndex];
-  };
   return (
     <motion.svg
       width="125"

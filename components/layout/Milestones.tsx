@@ -47,8 +47,8 @@ const childVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      opacity: { delay: 1 + 0.02 * index }, // 1-second initial delay + staggered delay based on index
-      y: { delay: 1 + 0.1 * index } // 1-second initial delay + staggered delay based on index
+      opacity: { delay: 1 + 0.02 * index },
+      y: { delay: 1 + 0.1 * index }
     }
   }),
   exit: {

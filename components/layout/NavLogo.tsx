@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import Logo from './Logo';
-import Link from 'next/link';
 import GlitchLogo from './GlitchLogo';
 
-const YourComponent = () => {
+const NavLogo = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -27,4 +26,4 @@ const YourComponent = () => {
   );
 };
 
-export default YourComponent;
+export default NavLogo;

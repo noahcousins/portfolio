@@ -4,7 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function SocialLinks({ socialLinks }: { socialLinks: any }) {
+type SocialLink = {
+  alt: string;
+  imageSrc: string;
+  href: string;
+};
+
+type SocialLinksProps = {
+  socialLinks: SocialLink[];
+};
+
+export default function SocialLinks({ socialLinks }: SocialLinksProps) {
   const linksFadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -21,7 +31,7 @@ export default function SocialLinks({ socialLinks }: { socialLinks: any }) {
 
   return (
     <div className="flex gap-4">
-      {socialLinks.map((socialLink: any, index: number) => (
+      {socialLinks.map((socialLink: SocialLink, index: number) => (
         <motion.div
           variants={linksFadeInAnimationVariants}
           initial="initial"
