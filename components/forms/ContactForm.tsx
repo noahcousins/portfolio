@@ -4,6 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import { toast } from 'sonner';
+
+import { Mail } from 'lucide-react';
+
 import {
   Form,
   FormField,
@@ -16,74 +20,91 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import { useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.'
   }),
   email: z.string().email({
-    message: 'Email must be in proper format'
+    message: 'Please enter a vaild email.'
   }),
-  phone: z.string().min(2, {
-    message: 'Phone number must be at least 2 characters.'
-  }),
-  content: z.string().min(2, {
-    message: 'Content must be at least 2 characters.'
+  content: z.string().min(20, {
+    message: 'Message must be at least 20 characters.'
   })
 });
 
 export default function ContactForm() {
+  const [isLoading, setLoading] = useState(false); // State to manage loading indicator
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
       content: ''
     }
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
-    const formData = new FormData();
-    // TODO: pass formData to onSubmit
-    onSubmit(values);
-    form.reset();
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setLoading(true); // Set loading state to true before submission
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: values.name,
+          emailAddress: values.email,
+          content: values.content
+        })
+      });
+
+      if (response.ok) {
+        // Handle success case
+        toast('Message sent successfully!');
+        form.reset(); // Clear the form upon successful submission
+      } else {
+        // Handle error case
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      // Handle any unexpected errors
+      toast(
+        'An error occurred while sending the message. Please try again later.'
+      );
+      console.error(error);
+    } finally {
+      setLoading(false); // Set loading state back to false after submission
+    }
   };
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    // ### Parse formData like below:
-    // const name = formData.get('name') as string;
-    // const email = formData.get('email') as string;
-    // const phone = formData.get('phone') as string;
-    // const message = formData.get('content') as string;
-
-    await fetch('/api/send', {
-      method: 'POST',
-      body: JSON.stringify({
-        name: values.name,
-        emailAddress: values.email,
-        phoneNumber: values.phone,
-        content: values.content
-      })
-    });
-  }
-
   return (
-    <section className="mx-auto flex w-full">
+    <section className="mx-auto flex w-full py-8">
       <div className="mx-auto max-w-4xl">
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
           <div className="flex flex-col gap-8 lg:col-span-2">
-            <p className="max-w-xl text-4xl font-bold">Contact</p>
-            <p className="">
+            <p className="pointer-events-none max-w-xl text-4xl font-bold">
+              Contact
+            </p>
+            <p className="pointer-events-none">
               Ready to bring your ideas into the digital realm? Reach out for
               inquiries, quotes, or to discuss potential collaborations. Let's
               create something remarkable together.
             </p>
             <a
               href="mailto:noahcousins.dev@gmail.com"
-              className="text-xl font-semibold"
+              className="w-fit items-center text-base text-primary transition-all duration-200 ease-in-out hover:text-primary/60"
             >
-              noahcousins.dev@gmail.com
+              <span className="group flex items-center gap-2">
+                <Mail
+                  className="scale-90 items-center transition-transform duration-200 ease-in-out group-hover:scale-100"
+                  size={20}
+                />{' '}
+                noahcousins.dev@gmail.com
+              </span>
             </a>
           </div>
 
@@ -98,10 +119,15 @@ export default function ContactForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="What's your name?" {...field} />
+                        <Input
+                          className="rounded-xl"
+                          placeholder="Name"
+                          {...field}
+                        />
                       </FormControl>
+                      {/* <FormLabel className="pl-1 text-xs">Name</FormLabel> */}
+
                       <FormMessage />
                     </FormItem>
                   )}
@@ -113,23 +139,15 @@ export default function ContactForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="What's your email?" {...field} />
+                          <Input
+                            className="rounded-xl"
+                            placeholder="Email"
+                            {...field}
+                          />
                         </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone number</FormLabel>
-                        <FormControl>
-                          <Input placeholder="What's your #?" {...field} />
-                        </FormControl>
+                        {/* <FormLabel className="pl-1 text-xs">Email</FormLabel> */}
+
                         <FormMessage />
                       </FormItem>
                     )}
@@ -141,19 +159,27 @@ export default function ContactForm() {
                   name="content"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Text</FormLabel>
                       <FormControl>
                         <Textarea
+                          className="rounded-xl"
                           placeholder="Enter your message here"
                           {...field}
                         />
                       </FormControl>
+                      {/* <FormLabel className="pl-1 text-xs">Text</FormLabel> */}
+
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <Button type="submit">Add Statement</Button>
+                <Button
+                  className="rounded-xl"
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Sending...' : 'Send Message'}
+                </Button>
               </form>
             </Form>
           </div>

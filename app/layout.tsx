@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import Navigation from '@/components/layout/Navigation';
 import Sidebar from '@/components/layout/Sidebar';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 import { GeistSans } from 'geist/font';
 
 export const metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navigation />{' '}
-            <div className="flex w-full px-4 py-8 tracking-tight xl:px-0">
+            <div className="flex h-screen w-full px-4 py-8 tracking-tight xl:px-0">
               {children}
             </div>
             <Footer />
