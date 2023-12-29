@@ -44,25 +44,23 @@ const mainRoutes = [
 ];
 
 export default function MobileSidebar() {
-  // console.log("Check for cookie", sessionUser);
-
   return (
     <Sheet>
       <SheetTrigger>
         <Menu size={24} className="text-white" />
       </SheetTrigger>
-      <SheetContent className="flex w-[300px] flex-col gap-4" side={'left'}>
+      <SheetContent className="flex w-[300px] flex-col gap-8" side={'left'}>
         <SheetHeader>
           <Link className="visible lg:hidden" href="/">
             <NavLogo />
           </Link>
         </SheetHeader>
 
-        <div className="w-fit space-y-1 rounded-2xl bg-transparent transition-colors hover:bg-background/40">
+        <div className="flex w-fit flex-col gap-4 space-y-1 rounded-2xl bg-transparent transition-colors hover:bg-background/40">
           {mainRoutes.map((route) => (
             <NavLink key={route.href} href={route.href}>
-              <div className="group flex w-44 flex-1 cursor-pointer items-center justify-start rounded-lg p-3 text-sm transition hover:bg-white/10">
-                <route.icon size={20} className="mr-3" />
+              <div className="group flex w-fit flex-1 cursor-pointer items-center justify-start rounded-lg text-2xl">
+                <route.icon size={36} className="mr-3" />
                 {route.label}
               </div>
             </NavLink>
