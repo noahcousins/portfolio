@@ -29,7 +29,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navigation />{' '}
-            <div className="flex h-screen w-full px-4 py-8 tracking-tight xl:px-0">
+            <div className="flex min-h-screen w-full px-4 py-8 tracking-tight xl:px-0">
               {children}
             </div>
             <Footer />
