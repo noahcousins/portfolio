@@ -1,4 +1,4 @@
-# Next.js Subscription Payments Starter
+# Noah Cousins Portfolio
 
 The all-in-one starter kit for high-performance SaaS applications.
 
