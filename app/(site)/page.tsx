@@ -112,7 +112,7 @@ export default function Home() {
     {
       name: 'Drumify',
       imageAlt: 'Drumify image',
-      imageSrc: '',
+      imageSrc: '/drumify-hero.jpg',
       href: 'https://drumify.com',
       role: 'Product Designer',
       term: '2021 - Present',
@@ -122,21 +122,22 @@ export default function Home() {
     {
       name: 'soundbit',
       imageAlt: 'soundbit image',
-      imageSrc: '',
+      imageSrc: '/soundbit.jpg',
       term: '2023 - Present',
       role: 'Fullstack',
       href: 'https://soundbit.io',
-      description: 'Lorem ipsum'
-    },
-    {
-      name: 'UAPoli',
-      imageAlt: 'UAPoli image',
-      imageSrc: '',
-      term: '2023 - Present',
-      role: 'Fullstack',
-      href: 'https://uapoli.com',
-      description: 'Lorem ipsum'
+      description:
+        'soundbit came from an idea I had as a music producer. A lot of independent artists that I sold my productions to needed a quick website. Connecting to the Shopify API and a simple SQL database allows for informative, easy to reproduce websites.'
     }
+    // {
+    //   name: 'UAPoli',
+    //   imageAlt: 'UAPoli image',
+    //   imageSrc: '/drumify-hero.jpg',
+    //   term: '2023 - Present',
+    //   role: 'Fullstack',
+    //   href: 'https://uapoli.com',
+    //   description: 'Lorem ipsum'
+    // }
   ];
 
   return (
@@ -266,7 +267,7 @@ export default function Home() {
                   height={360}
                   className="h-full"
                   width={640}
-                  src="/drumify-hero.jpg"
+                  src={project.imageSrc}
                 />
               </div>
               <div className="flex w-full flex-col gap-4 lg:w-1/2">
