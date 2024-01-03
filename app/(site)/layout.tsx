@@ -10,7 +10,7 @@ export default function SiteLayout({
 }) {
   return (
     <div className="flex w-full flex-col">
-      <div className="flex w-full">{children}</div>
+      <div className="mx-auto flex w-full max-w-4xl">{children}</div>
     </div>
   );
 }

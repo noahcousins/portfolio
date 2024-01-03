@@ -49,9 +49,9 @@ const mainRoutes = [
     href: '/contact'
   },
   {
-    label: 'Download my CV',
+    label: 'Download my resume',
     icon: FileDown,
-    href: '/'
+    href: '/pdf/Noah_Cousins_resume.pdf'
   }
 ];
 
