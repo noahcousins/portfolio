@@ -89,10 +89,10 @@ export default function ContactForm() {
             <p className="pointer-events-none max-w-xl text-4xl font-bold">
               Contact
             </p>
-            <p className="pointer-events-none">
-              Ready to bring your ideas into the digital realm? Reach out for
-              inquiries, quotes, or to discuss potential collaborations. Let's
-              create something remarkable together.
+            <p className="pointer-events-none font-light">
+              Looking to collaborate on a project? Drop a line for inquiries,
+              quotes, or to discuss potential collaborations. Let's build
+              something amazing together.
             </p>
             <a
               href="mailto:noahcousins.dev@gmail.com"
@@ -102,7 +102,7 @@ export default function ContactForm() {
                 <Mail
                   className="scale-90 items-center transition-transform duration-200 ease-in-out group-hover:scale-100"
                   size={20}
-                />{' '}
+                />
                 noahcousins.dev@gmail.com
               </span>
             </a>
@@ -112,7 +112,7 @@ export default function ContactForm() {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(handleSubmit)}
-                className="space-y-8"
+                className="space-y-4"
               >
                 <FormField
                   control={form.control}
