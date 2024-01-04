@@ -7,7 +7,7 @@
 @vercel
 
 🎨 UI: 
-"@tailwindcss + @shadcn"
+@tailwindcss + @shadcn
  
 ## Getting Started
 
