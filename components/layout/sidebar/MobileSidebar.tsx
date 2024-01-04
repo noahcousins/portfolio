@@ -32,9 +32,9 @@ const mainRoutes = [
     href: '/contact'
   },
   {
-    label: 'Download my CV',
+    label: 'Download my resume',
     icon: FileDown,
-    href: '/'
+    href: '/pdf/Noah_Cousins_resume.pdf'
   }
 ];
 
@@ -54,8 +54,8 @@ export default function MobileSidebar() {
         <div className="flex w-fit flex-col gap-4 space-y-1 rounded-2xl bg-transparent transition-colors hover:bg-background/40">
           {mainRoutes.map((route) => (
             <NavLink key={route.href} href={route.href}>
-              <div className="group flex w-fit flex-1 cursor-pointer items-center justify-start rounded-lg text-2xl">
-                <route.icon size={36} className="mr-3" />
+              <div className="group flex w-fit flex-1 cursor-pointer items-center justify-start rounded-lg text-lg font-medium uppercase">
+                <route.icon size={24} className="mr-3" />
                 {route.label}
               </div>
             </NavLink>

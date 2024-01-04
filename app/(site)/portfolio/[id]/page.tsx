@@ -31,7 +31,7 @@ export default function Page({ params }: { params: any }) {
         <div className="group flex w-full flex-col gap-4">
           <div className="flex gap-3">
             <Link target="_blank" href={project.href}>
-              <div className="aspect-square w-12 overflow-hidden rounded-lg bg-primary/5">
+              <div className="aspect-square w-12 cursor-pointer overflow-hidden rounded-lg bg-primary/5">
                 <Image
                   alt={`${project.name} logo`}
                   height={1000}
@@ -49,7 +49,7 @@ export default function Page({ params }: { params: any }) {
                 href={project.href}
               >
                 <h3 className="text-2xl font-semibold">{project.name}</h3>
-                <ExternalLink className="hidden group-hover:flex" size={20} />
+                <ExternalLink className="" size={20} />
               </Link>
               <p className="text-sm uppercase">
                 {project.role}
@@ -64,7 +64,7 @@ export default function Page({ params }: { params: any }) {
             {project.technologies.map((technology: any, i: number) => (
               <p
                 key={i}
-                className="rounded-lg bg-white/5 px-2 py-1 text-xs text-primary"
+                className="rounded-lg bg-primary px-2 py-1 text-xs text-secondary"
               >
                 {technology}
               </p>

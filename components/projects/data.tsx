@@ -4,12 +4,12 @@ export const projectsData = [
     handle: 'drumify',
     imageAlt: 'Drumify image',
     logoSrc: '/projects/drumify/logo/drumify_logo.svg',
-    imageSrc: '/projects/drumify/drumify.jpg',
+    imageSrc: '/projects/drumify/drumify.png',
     href: 'https://drumify.com',
     role: 'Front-end Developer',
     term: '2022 - Present',
     description:
-      'At Drumify, I play a pivotal role across developmemt, product design, and marketing. I spearheaded the launch of their subscription model, revamped their brand and visual identity, direct diverse marketing initiatives, and successfully position the platform as the fresh approach to collaborating with session musicians.',
+      'At Drumify, I play a pivotal role across development, product design, and marketing. I spearheaded the launch of their subscription model, revamped their brand and visual identity, direct diverse marketing initiatives, and successfully position the platform as the fresh approach to collaborating with session musicians.',
     technologies: ['Next.js', 'Tailwind CSS', 'GraphQL', 'AWS', 'Git']
   },
   {
@@ -44,7 +44,7 @@ export const projectsData = [
     role: 'Fullstack',
     href: 'https://uapoli.com',
     description:
-      'Developed a fullstack app for congressional outreach on Unidentified Aerial Phenomena (UAP). Featuring a robust CRUD admin dashboard, this project enables efficient content and user management for vital communication in this domain.',
+      'Developed a fullstack app for congressional outreach on Unidentified Aerial Phenomena (UAP). Featuring a robust admin dashboard, this project enables efficient content and user management for vital communication in this domain.',
     technologies: [
       'Next.js',
       'Tailwind CSS',

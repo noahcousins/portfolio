@@ -65,7 +65,7 @@ export default function Projects({ projects }: { projects: any }) {
                   href={project.href}
                 >
                   <h3 className="text-2xl font-semibold">{project.name}</h3>
-                  <ExternalLink className="hidden group-hover:flex" size={20} />
+                  <ExternalLink className="" size={20} />
                 </Link>
                 <p className="text-sm uppercase">
                   {project.role}
