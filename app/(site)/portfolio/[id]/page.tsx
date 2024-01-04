@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { ExternalLink } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export default function Page({ params }: { params: any }) {
   const { id } = params;
@@ -70,6 +71,23 @@ export default function Page({ params }: { params: any }) {
               </p>
             ))}
           </div>
+          {project.testEmail ? (
+            <div className="flex flex-col gap-2 text-sm">
+              <p className="font-medium">
+                <span className="font-light uppercase">Test Email:</span>{' '}
+                {project.testEmail}
+              </p>
+              <p className="font-medium">
+                <span className="font-light uppercase">Test Password:</span>{' '}
+                {project.testPass}
+              </p>
+              <Badge className="w-fit">
+                <p className="">Note: {project.testNote}</p>
+              </Badge>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </div>

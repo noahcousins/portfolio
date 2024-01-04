@@ -32,7 +32,11 @@ export const projectsData = [
       'Apollo',
       'Framer Motion',
       'TypeScript'
-    ]
+    ],
+    testEmail: 'test@gmail.com',
+    testPass: 'test1234',
+    testNote:
+      'To experience the full onboarding process, feel free to make a new account!'
   },
   {
     name: 'UAPoli',
@@ -52,6 +56,9 @@ export const projectsData = [
       'Firebase',
       'TypeScript',
       'Three.js'
-    ]
+    ],
+    testEmail: 'test@gmail.com',
+    testPass: 'test1234',
+    testNote: 'You will have access to the premium subscription.'
   }
 ];
