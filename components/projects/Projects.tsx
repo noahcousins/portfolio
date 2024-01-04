@@ -51,7 +51,7 @@ export default function Projects({ projects }: { projects: any }) {
                   <Image
                     alt={`${project.name} logo`}
                     height={1000}
-                    className="h-full"
+                    className="h-full scale-100 duration-200 hover:scale-110"
                     width={1000}
                     src={project.logoSrc}
                   />
@@ -84,7 +84,7 @@ export default function Projects({ projects }: { projects: any }) {
                 .map((technology: any, i: number) => (
                   <p
                     key={i}
-                    className="rounded-lg bg-white/5 px-2 py-1 text-xs text-primary"
+                    className="rounded-lg bg-primary px-2 py-1 text-xs text-secondary"
                   >
                     {technology}
                   </p>

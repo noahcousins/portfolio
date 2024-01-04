@@ -3,7 +3,7 @@ export const projectsData = [
     name: 'Drumify',
     handle: 'drumify',
     imageAlt: 'Drumify image',
-    logoSrc: '/projects/drumify/logo/drumify_logo.png',
+    logoSrc: '/projects/drumify/logo/drumify_logo.svg',
     imageSrc: '/projects/drumify/drumify.jpg',
     href: 'https://drumify.com',
     role: 'Front-end Developer',
@@ -20,7 +20,7 @@ export const projectsData = [
     logoSrc: '/projects/soundbit/logo/soundbit_logo.svg',
     term: '2023 - Present',
     role: 'Fullstack',
-    href: 'https://soundbit.io',
+    href: 'https://soundbit.vercel.app/',
     longDescription:
       'A lot of independent artists that I sold my productions to needed a quick website.',
     description:
