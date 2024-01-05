@@ -29,7 +29,7 @@ export const projectsData = [
       'Next.js',
       'Tailwind CSS',
       'PostgreSQL',
-      'Apollo',
+      'Axios',
       'Framer Motion',
       'TypeScript'
     ],
@@ -52,7 +52,7 @@ export const projectsData = [
     technologies: [
       'Next.js',
       'Tailwind CSS',
-      'Apollo',
+      'Axios',
       'Firebase',
       'TypeScript',
       'Three.js'

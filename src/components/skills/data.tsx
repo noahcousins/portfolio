@@ -7,6 +7,7 @@ export const skillsData = [
   { name: 'GraphQL' },
   { name: 'React' },
   { name: 'Next.js' },
+  { name: 'Axios' },
   { name: 'Node.js' },
   { name: 'PostgreSQL' },
   { name: 'Supabase' },
