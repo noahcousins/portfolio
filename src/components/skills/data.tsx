@@ -9,9 +9,9 @@ export const skillsData = [
   { name: 'Next.js' },
   { name: 'Axios' },
   { name: 'Node.js' },
+  { name: 'Shopify' },
   { name: 'PostgreSQL' },
   { name: 'Supabase' },
-  { name: 'Firebase' },
   { name: 'Tailwind CSS' },
   { name: 'Framer Motion' },
   { name: 'AWS' }

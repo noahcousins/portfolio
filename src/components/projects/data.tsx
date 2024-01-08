@@ -10,7 +10,14 @@ export const projectsData = [
     term: '2022 - Present',
     description:
       'At Drumify, I play a pivotal role across development, product design, and marketing. I spearheaded the launch of their subscription model, revamped their brand and visual identity, direct diverse marketing initiatives, and successfully position the platform as the fresh approach to collaborating with session musicians.',
-    technologies: ['Next.js', 'Tailwind CSS', 'GraphQL', 'AWS', 'Git']
+    technologies: [
+      'Next.js',
+      'Tailwind CSS',
+      'GraphQL',
+      'Shopify',
+      'AWS',
+      'Git'
+    ]
   },
   {
     name: 'soundbit.',
