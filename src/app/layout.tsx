@@ -5,6 +5,7 @@ import Navigation from '@/src/components/layout/navigation/Navigation';
 import { ThemeProvider } from '@/src/components/theme-provider';
 import { Toaster } from '@/src/components/ui/sonner';
 import { GeistSans } from 'geist/font';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Noah Cousins',
@@ -40,6 +41,7 @@ export default function RootLayout({
         </div>
 
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
