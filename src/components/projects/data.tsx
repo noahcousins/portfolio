@@ -27,7 +27,7 @@ export const projectsData = [
     logoSrc: '/projects/soundbit/logo/soundbit_logo.svg',
     term: '2023 - Present',
     role: 'Fullstack',
-    href: 'https://soundbit.vercel.app/',
+    href: 'https://soundbit.io/',
     longDescription:
       'A lot of independent artists that I sold my productions to needed a quick website.',
     description:
