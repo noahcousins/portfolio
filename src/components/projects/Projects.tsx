@@ -67,7 +67,7 @@ export default function Projects({ projects }: { projects: any }) {
                   <h3 className="text-2xl font-semibold">{project.name}</h3>
                   <ExternalLink className="" size={20} />
                 </Link>
-                <p className="text-sm uppercase">
+                <p className="text-sm uppercase  text-primary/70">
                   {project.role}
                   {' / '}
                   {project.term}
@@ -75,7 +75,7 @@ export default function Projects({ projects }: { projects: any }) {
               </div>
             </div>
 
-            <p className="w-full text-sm font-light sm:w-3/4 lg:w-full">
+            <p className="w-full text-sm font-normal sm:w-3/4 lg:w-full">
               {project.description}
             </p>
             <div className="flex gap-2">

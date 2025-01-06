@@ -1,18 +1,16 @@
 export const skillsData = [
-  { name: 'HTML' },
-  { name: 'CSS' },
-  { name: 'JavaScript' },
   { name: 'TypeScript' },
-  { name: 'Git' },
-  { name: 'GraphQL' },
   { name: 'React' },
   { name: 'Next.js' },
-  { name: 'Axios' },
   { name: 'Node.js' },
-  { name: 'Shopify' },
+  { name: 'HTML' },
+  { name: 'CSS' },
   { name: 'PostgreSQL' },
-  { name: 'Supabase' },
+  { name: 'AWS' },
+  { name: 'Vercel' },
+  { name: 'Shopify' },
+  { name: 'Git' },
+  { name: 'Figma' },
   { name: 'Tailwind CSS' },
-  { name: 'Framer Motion' },
-  { name: 'AWS' }
+  { name: 'Stripe' }
 ];

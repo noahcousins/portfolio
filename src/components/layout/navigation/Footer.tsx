@@ -9,7 +9,6 @@ export default function Footer() {
   const footerLinks = [
     { name: 'Github', href: 'https://github.com/noahcousins' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/noahcousins' }
-    // { name: 'Twitter', href: 'https://www.twitter.com/noahwebdev' }
   ];
 
   return (

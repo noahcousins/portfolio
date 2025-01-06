@@ -43,11 +43,6 @@ const mainRoutes = [
     label: 'Contact',
     icon: Send,
     href: '/contact'
-  },
-  {
-    label: 'Download my resume',
-    icon: FileDown,
-    href: '/pdf/Noah_Cousins_resume.pdf'
   }
 ];
 
