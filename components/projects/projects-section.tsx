@@ -1,6 +1,4 @@
 import { projects } from "@/constants/projects";
-import Image from "next/image";
-import Link from "next/link";
 import ProjectCard from "./project-card";
 
 const ProjectsSection = () => {

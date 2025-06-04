@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { projects } from "@/constants/projects";
 import Link from "next/link";
-import { GithubIcon } from "lucide-react";
 
 const ProjectCard = ({ project }: { project: (typeof projects)[number] }) => {
   return (

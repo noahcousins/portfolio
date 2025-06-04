@@ -1,6 +1,4 @@
 import { work } from "@/constants/work";
-import Image from "next/image";
-import Link from "next/link";
 import WorkCard from "./work-card";
 
 const WorkSection = () => {

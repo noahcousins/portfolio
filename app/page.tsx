@@ -39,7 +39,7 @@ export default function Home() {
       </FadeInSection>
 
       <FadeInSection delay={0.1} className="text-sm">
-        I'm a developer & designer based in Maine.
+        I&apos;m a developer & designer based in Maine.
       </FadeInSection>
 
       <FadeInSection delay={0.2} className="text-sm">
