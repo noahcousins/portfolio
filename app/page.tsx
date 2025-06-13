@@ -35,7 +35,7 @@ const FadeInSection = ({
 export default function Home() {
   return (
     <main className="flex flex-col gap-y-10 max-w-[500px] w-full">
-      <FadeInSection delay={0}>
+      <FadeInSection delay={0} className="sticky top-0 z-50 p-4 -mx-4">
         <AboutSection />
       </FadeInSection>
 
