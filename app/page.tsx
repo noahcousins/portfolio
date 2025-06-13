@@ -3,6 +3,7 @@
 import ContactBadges from "@/components/app/contact-badges";
 import ProjectsSection from "@/components/projects/projects-section";
 import WorkSection from "@/components/work/work-section";
+import LiquidGlass from "@/components/liquid-glass";
 import Link from "next/link";
 import { motion } from "motion/react";
 import AboutSection from "@/components/app/about-section";
@@ -56,6 +57,10 @@ export default function Home() {
 
       <FadeInSection delay={0.3}>
         <ContactBadges />
+      </FadeInSection>
+
+      <FadeInSection delay={0.35} className="flex justify-center">
+        <LiquidGlass width={300} height={200} className="my-4" />
       </FadeInSection>
 
       <FadeInSection delay={0.4}>
