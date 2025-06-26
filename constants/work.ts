@@ -6,9 +6,17 @@ export const work = [
     image: "/images/drumify.png",
     imageAlt: "Drumify",
     term: "2022 - Present",
-    imageWidth: 3016,
-    imageHeight: 1708,
-    imageBlurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
+    imageWidth: 1508,
+    imageHeight: 854,
+  },
+  {
+    name: "Smyle Coffee",
+    description: "Headless e-commerce for KYLE's coffee brand.",
+    href: "https://www.smyle-web.vercel.app",
+    image: "/images/smyle.png",
+    imageAlt: "Smyle Coffee",
+    term: "2025",
+    imageWidth: 1508,
+    imageHeight: 854,
   },
 ];

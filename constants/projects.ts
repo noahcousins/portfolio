@@ -9,7 +9,5 @@ export const projects = [
     term: "2025",
     imageWidth: 1624,
     imageHeight: 1244,
-    imageBlurHash:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
   },
 ];
