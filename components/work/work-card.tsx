@@ -9,7 +9,7 @@ const WorkCard = ({ work }: { work: (typeof workData)[number] }) => {
         key={work.name}
         className="p-2 border-[1.5px] group hover:bg-primary/[0.02] transition-colors duration-200 border-border rounded-2xl"
       >
-        <div className="relative rounded-lg overflow-hidden">
+        <div className="relative rounded-lg isolate">
           <Image
             src={work.image}
             alt={work.imageAlt}
@@ -28,8 +28,8 @@ const WorkCard = ({ work }: { work: (typeof workData)[number] }) => {
           <p className="absolute group-hover:hidden bottom-4 z-50 uppercase right-4 text-xs tracking-tight font-semibold drop-shadow-lg text-white">
             {work.term}
           </p>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background rounded-lg group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background rounded-lg group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent group-hover:rounded-lg via-transparent to-background group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent group-hover:rounded-lg via-transparent to-background group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
         </div>
       </div>
     </Link>
