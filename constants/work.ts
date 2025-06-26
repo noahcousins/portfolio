@@ -12,7 +12,7 @@ export const work = [
   {
     name: "Smyle Coffee",
     description: "Headless e-commerce for KYLE's coffee brand.",
-    href: "https://www.smyle-web.vercel.app",
+    href: "https://smyle-web.vercel.app",
     image: "/images/smyle.png",
     imageAlt: "Smyle Coffee",
     term: "2025",
