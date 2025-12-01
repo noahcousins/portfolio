@@ -1,38 +1,79 @@
+"use client";
+
 import Image from "next/image";
 import { work as workData } from "@/constants/work";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const WorkCard = ({ work }: { work: (typeof workData)[number] }) => {
   return (
-    <Link href={work.href} target="_blank" rel="noopener noreferrer">
-      <div
-        key={work.name}
-        className="p-2 border-[1.5px] group hover:bg-primary/[0.02] transition-colors duration-200 border-border rounded-2xl"
-      >
-        <div className="relative rounded-lg isolate">
-          <Image
-            src={work.image}
-            alt={work.imageAlt}
-            width={work.imageWidth}
-            height={work.imageHeight}
-            className="rounded-lg"
-          />
-          <div className="absolute group-hover:hidden transition-opacity duration-200 bottom-4 z-200 left-4 flex flex-col">
-            <p className="text-xl tracking-tight font-semibold drop-shadow-lg text-white">
-              {work.name}
-            </p>
-            <p className="text-xs tracking-tight font-semibold drop-shadow-lg text-white">
-              {work.description}
-            </p>
-          </div>
-          <p className="absolute group-hover:hidden bottom-4 z-50 uppercase right-4 text-xs tracking-tight font-semibold drop-shadow-lg text-white">
-            {work.term}
-          </p>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent group-hover:rounded-lg via-transparent to-background group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent group-hover:rounded-lg via-transparent to-background group-hover:hidden group-hover:opacity-0 transition-opacity duration-200" />
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col">
+          <Link
+            href={work.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold tracking-tight hover:underline"
+          >
+            {work.name}
+          </Link>
+          <p className="text-sm text-muted-foreground">{work.description}</p>
         </div>
+        <span className="text-xs text-muted-foreground uppercase tracking-wide">
+          {work.term}
+        </span>
       </div>
-    </Link>
+
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-2">
+          {work.images.map((image, index) => {
+            const isGif = image.endsWith(".gif");
+            return (
+              <CarouselItem key={index} className="pl-2 basis-[85%]">
+                <div className="relative aspect-[1499/854] rounded-xl overflow-hidden border border-border">
+                  <Image
+                    src={image}
+                    alt={`${work.name} screenshot ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    unoptimized={isGif}
+                  />
+                </div>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselPrevious
+          variant={work.darkButtons ? "default" : "outline"}
+          className={
+            work.darkButtons
+              ? "left-2 !bg-black !border-neutral-800 hover:!bg-neutral-900 !text-white"
+              : "left-2 bg-background/80 backdrop-blur-sm border-border hover:bg-background"
+          }
+        />
+        <CarouselNext
+          variant={work.darkButtons ? "default" : "outline"}
+          className={
+            work.darkButtons
+              ? "right-2 !bg-black !border-neutral-800 hover:!bg-neutral-900 !text-white"
+              : "right-2 bg-background/80 backdrop-blur-sm border-border hover:bg-background"
+          }
+        />
+      </Carousel>
+    </div>
   );
 };
 
